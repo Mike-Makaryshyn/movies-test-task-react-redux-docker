@@ -36,7 +36,7 @@ const Header = () => {
                   }
                 >
                   <div className="flex items-center">
-                    <Icon size={iconSize}/>
+                    <Icon size={iconSize} />
                     <span className="ml-2">{title}</span>
                   </div>
                 </NavLink>

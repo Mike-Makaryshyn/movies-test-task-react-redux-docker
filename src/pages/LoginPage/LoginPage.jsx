@@ -15,11 +15,11 @@ const loginInputsData = [
 
 const LoginPage = () => {
   const { submitHandler, logoutHadler, error } = useAuth("sessions");
-  const { email } = useSelector((state) => state.user);
+  const { email: isLoggedIn } = useSelector((state) => state.user);
 
   return (
     <div className="flex flex-col items-center justify-center h-[85vh]">
-      {email ? (
+      {isLoggedIn ? (
         <>
           <p className="pb-5">You are signed in already!</p>
           <div>
