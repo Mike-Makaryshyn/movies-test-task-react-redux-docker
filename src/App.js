@@ -5,6 +5,7 @@ import Loader from "./components/Loader/Loader";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegistrationPage = lazy(() => import("./pages/RegistrationPage"));
 const MoviesPage = lazy(() => import("./pages/MoviesPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/registration" element={<RegistrationPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

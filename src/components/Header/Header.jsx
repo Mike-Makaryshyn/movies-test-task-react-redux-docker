@@ -1,43 +1,52 @@
 import { NavLink } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
+import { MdLocalMovies } from "react-icons/md";
+import { AiOutlineLogin } from "react-icons/ai";
 
-function Header() {
-  const headerList = ["/", "movies", "login"];
+const headerList = [
+  { link: "/", title: "home", Icon: FaHome },
+  { link: "/movies", title: "movies", Icon: MdLocalMovies },
+  { link: "/login", title: "login", Icon: AiOutlineLogin },
+];
 
+const iconSize = 23;
+
+const Header = () => {
   return (
     <header>
-      <nav className="bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <img
-                  className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                  alt="Workflow"
-                />
-              </div>
-
-              <div className="ml-10 flex space-x-4">
-                {headerList.map((item) => (
-                  <NavLink
-                    to={item}
-                    key={item}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "capitalize bg-gray-700 text-white px-4 py-2 rounded-md text-sm font-bold cursor-pointer"
-                        : "capitalize text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-bold cursor-pointer"
-                    }
-                  >
-                    {item === "/" ? "home" : item}
-                  </NavLink>
-                ))}
-              </div>
+      <nav className="bg-gray-800 flex-col p-3">
+        <NavLink to="/" className="flex mb-2 mt-1">
+          <img
+            src="https://webbylab.com/wp-content/uploads/2022/08/h-logo.svg"
+            alt="WebbyLab logo"
+          />
+          <span className="text-yellow font-bold text-sm">TV</span>
+        </NavLink>
+        <div className="max-w-7xl mx-auto px-4 mb-2 sm:px-6 lg:px-8">
+          <div className="flex items-center">
+            <div className="ml-9 flex space-x-4">
+              {headerList.map(({ link, title, Icon }) => (
+                <NavLink
+                  to={link}
+                  key={title}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "capitalize bg-gray-700 text-white px-4 py-2 rounded-md text-sm font-bold cursor-pointer"
+                      : "capitalize text-gray-300 hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-bold cursor-pointer"
+                  }
+                >
+                  <div className="flex items-center">
+                    <Icon size={iconSize}/>
+                    <span className="ml-2">{title}</span>
+                  </div>
+                </NavLink>
+              ))}
             </div>
           </div>
         </div>
       </nav>
     </header>
   );
-}
+};
 
 export default Header;
