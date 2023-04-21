@@ -4,7 +4,7 @@ import { loginValidationSchema } from "../../utils/validation/authSchemas";
 
 import Input from "../../components/UI/Input";
 import Button from "../../components/UI/Button";
-import useAuth from "../../services/useAuth";
+import useAuth from "../../hooks/useAuth";
 import { useSelector } from "react-redux";
 
 const loginInputsData = [
@@ -16,8 +16,6 @@ const loginInputsData = [
 const LoginPage = () => {
   const { submitHandler, logoutHadler, error } = useAuth("sessions");
   const { email } = useSelector((state) => state.user);
-
-  console.log(email)
 
   return (
     <div className="flex flex-col items-center justify-center h-[85vh]">
