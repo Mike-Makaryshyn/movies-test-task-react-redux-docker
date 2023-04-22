@@ -18,7 +18,7 @@ const LoginPage = () => {
   const { email: isLoggedIn } = useSelector((state) => state.user);
 
   return (
-    <div className="flex flex-col items-center justify-center h-[85vh]">
+    <div className="flex flex-col items-center justify-center h-[82vh]">
       {isLoggedIn ? (
         <>
           <p className="pb-5">You are signed in already!</p>

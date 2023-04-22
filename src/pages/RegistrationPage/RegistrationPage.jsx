@@ -19,7 +19,7 @@ const RegistarationPage = () => {
   const { email: isLoggedIn } = useSelector((state) => state.user);
 
   return (
-    <div className="flex flex-col items-center justify-center h-[85vh]">
+    <div className="flex flex-col items-center justify-center h-[80vh]">
       {isLoggedIn ? (
         <>
           <p className="pb-5">You are signed in already!</p>
