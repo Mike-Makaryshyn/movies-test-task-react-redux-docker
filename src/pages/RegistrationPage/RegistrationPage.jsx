@@ -22,8 +22,8 @@ const RegistarationPage = () => {
     <div className="flex flex-col items-center justify-center h-[80vh]">
       {isLoggedIn ? (
         <>
-          <p className="pb-5">You are signed in already!</p>
-          <div>
+          <p className="pb-5 text-xl">You are signed in already!</p>
+          <div className="text-xl">
             <Button text="Log out" onClick={logoutHadler}></Button>
           </div>
         </>
@@ -54,10 +54,10 @@ const RegistarationPage = () => {
             </Form>
           </Formik>
 
-          <p>Already have an account?</p>
+          <p className="mt-5">Already have an account?</p>
           <Link
             to="/login"
-            className="inline-flex items-center font-medium text-blue-500 hover:underline"
+            className="my-link"
           >
             Return to Login page
           </Link>

@@ -6,7 +6,7 @@ import { removeUser, setUser } from "../redux/slices/userSlice";
 import { useDispatch } from "react-redux";
 import useHttp from "../services/useHttp";
 
-const useAuth = (directive) => {
+const useAuth = (directive = 'users') => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

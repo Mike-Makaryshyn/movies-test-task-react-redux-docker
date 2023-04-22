@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <header>
       <nav className="bg-gray-800 flex-col p-3">
-        <NavLink to="/" className="flex mb-2 mt-1">
+        <NavLink to="/" className="inline-flex mb-2 mt-1 -block">
           <img
             src="https://webbylab.com/wp-content/uploads/2022/08/h-logo.svg"
             alt="WebbyLab logo"

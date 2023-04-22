@@ -9,7 +9,7 @@ const RegistrationPage = lazy(() => import("./pages/RegistrationPage"));
 const MoviesPage = lazy(() => import("./pages/MoviesPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
-function App() {
+function App(): JSX.Element {
   return (
     <Suspense fallback={<Loader />}>
       <BrowserRouter>
