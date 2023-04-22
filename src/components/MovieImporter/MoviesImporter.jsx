@@ -11,8 +11,8 @@ function MoviesImporter() {
   const handleFileChange = (event) => {
     if (event.target.files) {
       const file = event.target.files[0];
-      setFile(file);
-      setFileName(file.name);
+      if (file) setFile(file);
+      if (file.name) setFileName(file.name);
     }
   };
 
@@ -27,6 +27,7 @@ function MoviesImporter() {
 
     if (status) {
       setStatusMessage("The file has been sent!");
+      window.location.reload();
     } else {
       setStatusMessage(
         "Something went wrong! Maybe your file does not contain needed info."
@@ -64,7 +65,7 @@ function MoviesImporter() {
         </div>
       </form>
 
-      <div className={status ? "text-green-500" : "text-red-400"}>
+      <div className={status ? "text-green-500 mt-5" : "text-red-400 mt-5"}>
         {statusMessage}
       </div>
     </div>

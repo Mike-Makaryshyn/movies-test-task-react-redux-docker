@@ -40,22 +40,26 @@ const MoviesList = () => {
         <MovieItem key={movie.id} idx={idx} movie={movie} />
       ))}
 
-      {moviesTotal === movies.length && (
-        <div className="text-gray-400 mt-5">There are no movies yet!</div>
+      {moviesTotal === movies.length && moviesTotal > 10 && (
+        <div className="text-gray-400 mt-5">There are no more movies!</div>
       )}
 
-      <div className="w-[30%] mt-5 flex">
-        <Button
-          text="LOAD MORE"
-          onClick={() => setLimit((prev) => prev + 5)}
-          disabled={!hasMoreMovies}
-        />
-        <Button
-          text="ALL"
-          onClick={() => setLimit(moviesTotal)}
-          disabled={!hasMoreMovies}
-        />
-      </div>
+      {moviesTotal === 0 ? (
+        <div className="text-gray-400 mt-5">There are no movies!</div>
+      ) : (
+        <div className="w-[30%] mt-5 flex">
+          <Button
+            text="LOAD MORE"
+            onClick={() => setLimit((prev) => prev + 5)}
+            disabled={!hasMoreMovies}
+          />
+          <Button
+            text="ALL"
+            onClick={() => setLimit(moviesTotal)}
+            disabled={!hasMoreMovies}
+          />
+        </div>
+      )}
     </>
   );
 };
