@@ -4,7 +4,7 @@ import { registrationValidationSchema } from "../../utils/validation/authSchemas
 
 import Input from "../../components/UI/Input";
 import Button from "../../components/UI/Button";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../services/useAuth";
 import { useSelector } from "react-redux";
 
 const loginInputsData = [

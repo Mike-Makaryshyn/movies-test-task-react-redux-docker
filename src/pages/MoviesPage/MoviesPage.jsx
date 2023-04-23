@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../services/useAuth";
 
 import LogoutButton from "../../components/UI/LogoutButton";
 import NotLoggedIn from "../../components/NotLoggedIn/NotLoggedIn";

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { removeUser, setUser } from "../redux/slices/userSlice";
 import { useDispatch } from "react-redux";
-import useHttp from "../services/useHttp";
+import useHttp from "./useHttp";
 
 const useAuth = (directive = 'users') => {
   const navigate = useNavigate();
