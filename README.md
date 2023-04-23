@@ -5,7 +5,7 @@
 1. Make sure you have Docker installed and running on your machine. Otherwise download it here: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
 2. Pull and run docker image which is used for API requests:
-    https://hub.docker.com/r/webbylabhub/movies
+   Visit the link: https://hub.docker.com/r/webbylabhub/movies
 
     ```
     docker pull webbylabhub/movies
@@ -16,7 +16,7 @@
 
 
 3. Pull and run my docker image to run the frontend part with docker:
-   https://hub.docker.com/r/mikemakaryshyn/movies-image
+   Visit the link: https://hub.docker.com/r/mikemakaryshyn/movies-image
 
     ```
     docker pull docker pull mikemakaryshyn/movies-image
