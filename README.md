@@ -27,8 +27,6 @@
     docker run --name movies_client -p 3000:3000 -e REACT_APP_API_URL=http://localhost:8000/api/v1 mikemakaryshyn/movies-image
     ```
 
-   Check out docker hub: 
-
 
 ## Technologies Used
 
