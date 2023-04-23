@@ -44,9 +44,11 @@ const MoviesList = () => {
         <div className="text-gray-400 mt-5">There are no more movies!</div>
       )}
 
-      {moviesTotal === 0 ? (
+      {moviesTotal === 0 && (
         <div className="text-gray-400 mt-5">There are no movies!</div>
-      ) : (
+      )}
+
+      {moviesTotal > 10 && (
         <div className="md:w-[30%] mt-5 flex">
           <Button
             text="LOAD MORE"
