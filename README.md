@@ -27,6 +27,8 @@
     docker run --name movies_client -p 3000:3000 -e REACT_APP_API_URL=http://localhost:8000/api/v1 mikemakaryshyn/movies-image
     ```
 
+> Note: You are able to configure REACT_APP_API_URL there. If your local docker server runs on another port you can write it directly in console command and the client server will get this updated url.
+
 
 ## Technologies Used
 
