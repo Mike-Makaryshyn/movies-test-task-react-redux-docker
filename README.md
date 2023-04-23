@@ -1,13 +1,24 @@
 # Movie Management System
 
-## Setup
+## Setup with Docker
 
 1. Make sure you have Docker installed and running on your machine. Otherwise download it here: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
 2. Pull and run docker image which is used for API requests:
     ```
     docker pull webbylabhub/movies
+    ```
+    ```
     docker run --name movies -p 8000:8000 webbylabhub/movies
+    ```
+
+
+3. Pull and run my docker image to run the frontend part with docker:
+    ```
+    docker pull my_image 
+    ```
+    ```
+    docker docker run --name movies_app -p 3000:3000 -e REACT_APP_API_URL=http://localhost:8000/api/v1 movies-image
     ```
 
 ## Technologies Used
