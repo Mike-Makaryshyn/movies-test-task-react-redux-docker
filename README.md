@@ -5,6 +5,8 @@
 1. Make sure you have Docker installed and running on your machine. Otherwise download it here: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
 2. Pull and run docker image which is used for API requests:
+    https://hub.docker.com/r/webbylabhub/movies
+
     ```
     docker pull webbylabhub/movies
     ```
@@ -12,10 +14,10 @@
     docker run --name movies -p 8000:8000 webbylabhub/movies
     ```
 
-    Check out docker hub: https://hub.docker.com/r/webbylabhub/movies
-
 
 3. Pull and run my docker image to run the frontend part with docker:
+   https://hub.docker.com/r/mikemakaryshyn/movies-image
+
     ```
     docker pull docker pull mikemakaryshyn/movies-image
     ```
@@ -23,7 +25,7 @@
     docker docker run --name movies_client -p 3000:3000 -e REACT_APP_API_URL=http://localhost:8000/api/v1 mikemakaryshyn/movies-image
     ```
 
-   Check out docker hub: https://hub.docker.com/r/mikemakaryshyn/movies-image
+   Check out docker hub: 
 
 
 ## Technologies Used
