@@ -5,6 +5,7 @@ const moviesSlice = createSlice({
   initialState: {
     loading: "idle",
     movies: [],
+    currentMovie: {},
     moviesTotal: 0,
   },
   reducers: {
@@ -20,6 +21,12 @@ const moviesSlice = createSlice({
         state.moviesTotal = action.payload.meta.total;
       }
     },
+    setCurrentMovie(state, action) {
+      if (state.loading === "pending") {
+        state.loading = "idle";
+        state.current = action.payload;
+      }
+    },
     removeMovie(state, action) {
       const movieId = action.payload;
       state.movies = state.movies.filter((movie) => movie.id !== movieId);
@@ -28,6 +35,7 @@ const moviesSlice = createSlice({
   },
 });
 
-export const { moviesLoading, setMovies, removeMovie } = moviesSlice.actions;
+export const { moviesLoading, setMovies, removeMovie, setCurrentMovie } =
+  moviesSlice.actions;
 
 export default moviesSlice.reducer;

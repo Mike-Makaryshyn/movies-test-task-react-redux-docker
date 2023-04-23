@@ -47,7 +47,7 @@ function MoviesImporter() {
         <div className="flex items-center justify-start items-center">
           <label
             htmlFor="file-upload"
-            className="bg-gray-700 text-white px-4 py-1.5 rounded-md cursor-pointer hover:bg-gray-800"
+            className="bg-gray-700 text-white px-4 py-1.5 rounded-md cursor-pointer hover:bg-gray-800 whitespace-nowrap"
           >
             Choose File
             <input
@@ -57,11 +57,11 @@ function MoviesImporter() {
               className="hidden"
             />
           </label>
-          {fileName && <div className="ml-3">{fileName}</div>}
 
-          <div className="w-[10vw] ml-5">
+          <div className="w-full md:w-[10vw] ml-5">
             <Button text="IMPORT" type="submit" />
           </div>
+          {fileName && <div className="ml-3">{fileName}</div>}
         </div>
       </form>
 

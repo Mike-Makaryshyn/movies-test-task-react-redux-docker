@@ -1,28 +1,55 @@
 import React, { useState } from "react";
-import { FiTrash2 } from "react-icons/fi";
-
-import { CgDetailsMore } from "react-icons/cg";
+import useHttp from "../../services/useHttp";
 import useDeleteMovie from "../../services/useDeleteMovie";
 
-const MovieItem = ({ movie, idx }) => {
-  const [showDetails, setShowDetails] = useState(false);
+import { FiTrash2 } from "react-icons/fi";
+import { CgDetailsMore } from "react-icons/cg";
 
+import MovieDetailsModal from "../UI/MovieDetailsModal";
+
+const MovieItem = ({ movie, idx }) => {
+  const [clickedMovie, setClickedMovie] = useState({});
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const api = useHttp();
   const deleteMovie = useDeleteMovie();
+
+  const clickDetailsHandler = async (id) => {
+    if (!api) {
+      console.error("Not authorized");
+      return;
+    }
+
+    api.get(`movies/${id}`).then((response) => {
+      const { data } = response.data;
+      setClickedMovie(() => data);
+      setIsDialogOpen(true);
+    });
+  };
 
   const handleDelete = async () => {
     await deleteMovie(movie.id);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
   };
 
   return (
     <div className="flex items-center justify-between px-4 py-2 border-b border-gray-300">
       <div className="flex items-center space-x-2">
         <span className="text-gray-500">{idx + 1}.</span>
-        <span className="font-medium">{movie.title}</span>
+        <span
+          onClick={() => clickDetailsHandler(movie.id)}
+          className="font-medium cursor-pointer hover:underline hover:text-gray-600"
+        >
+          {movie.title}
+        </span>
       </div>
       <div className="flex items-center space-x-2">
         <button
           className="text-gray-500 hover:text-gray-700"
-          onClick={() => setShowDetails((prev) => !prev)}
+          onClick={() => clickDetailsHandler(movie.id)}
         >
           <CgDetailsMore className="mr-5" />
         </button>
@@ -33,6 +60,14 @@ const MovieItem = ({ movie, idx }) => {
           <FiTrash2 />
         </button>
       </div>
+
+      {isDialogOpen && (
+        <MovieDetailsModal
+          clickedMovie={clickedMovie}
+          isDialogOpen={isDialogOpen}
+          handleCloseDialog={handleCloseDialog}
+        />
+      )}
     </div>
   );
 };

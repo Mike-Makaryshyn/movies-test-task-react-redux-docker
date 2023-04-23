@@ -47,14 +47,14 @@ const MoviesList = () => {
       {moviesTotal === 0 ? (
         <div className="text-gray-400 mt-5">There are no movies!</div>
       ) : (
-        <div className="w-[30%] mt-5 flex">
+        <div className="md:w-[30%] mt-5 flex">
           <Button
             text="LOAD MORE"
             onClick={() => setLimit((prev) => prev + 5)}
             disabled={!hasMoreMovies}
           />
           <Button
-            text="ALL"
+            text="SHOW ALL"
             onClick={() => setLimit(moviesTotal)}
             disabled={!hasMoreMovies}
           />
