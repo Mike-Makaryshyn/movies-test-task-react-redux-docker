@@ -21,10 +21,10 @@
    Visit the link: https://hub.docker.com/r/mikemakaryshyn/movies-image
 
     ```
-    docker pull docker pull mikemakaryshyn/movies-image
+    docker pull mikemakaryshyn/movies-image
     ```
     ```
-    docker docker run --name movies_client -p 3000:3000 -e REACT_APP_API_URL=http://localhost:8000/api/v1 mikemakaryshyn/movies-image
+    docker run --name movies_client -p 3000:3000 -e REACT_APP_API_URL=http://localhost:8000/api/v1 mikemakaryshyn/movies-image
     ```
 
    Check out docker hub: 
