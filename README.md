@@ -12,14 +12,19 @@
     docker run --name movies -p 8000:8000 webbylabhub/movies
     ```
 
+    Check out docker hub: https://hub.docker.com/r/webbylabhub/movies
+
 
 3. Pull and run my docker image to run the frontend part with docker:
     ```
-    docker pull my_image 
+    docker pull docker pull mikemakaryshyn/movies-image
     ```
     ```
-    docker docker run --name movies_app -p 3000:3000 -e REACT_APP_API_URL=http://localhost:8000/api/v1 movies-image
+    docker docker run --name movies_client -p 3000:3000 -e REACT_APP_API_URL=http://localhost:8000/api/v1 mikemakaryshyn/movies-image
     ```
+
+   Check out docker hub: https://hub.docker.com/r/mikemakaryshyn/movies-image
+
 
 ## Technologies Used
 
