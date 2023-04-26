@@ -44,7 +44,7 @@ function MoviesImporter() {
         >
           Import your movies from a file:
         </label>
-        <div className="flex items-center justify-start items-center">
+        <div className="flex justify-start items-center">
           <label
             htmlFor="file-upload"
             className="bg-gray-700 text-white px-4 py-1.5 rounded-md cursor-pointer hover:bg-gray-800 whitespace-nowrap"

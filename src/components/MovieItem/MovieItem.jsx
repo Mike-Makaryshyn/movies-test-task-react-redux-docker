@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useHttp from "../../services/useHttp";
 import useDeleteMovie from "../../services/useDeleteMovie";
 
@@ -7,7 +7,7 @@ import { CgDetailsMore } from "react-icons/cg";
 
 import MovieDetailsModal from "../UI/MovieDetailsModal";
 
-const MovieItem = ({ movie, idx }) => {
+const MovieItem = ({ movie, idx, alertMsg, setAlertMsg }) => {
   const [clickedMovie, setClickedMovie] = useState({});
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -28,7 +28,13 @@ const MovieItem = ({ movie, idx }) => {
   };
 
   const handleDelete = async () => {
-    await deleteMovie(movie.id);
+    const { status, error } = await deleteMovie(movie.id);
+
+    if(status) {
+      setAlertMsg('The movie has been deleted!')
+    } else {
+      setAlertMsg(error.code)
+    }
   };
 
   const handleCloseDialog = () => {

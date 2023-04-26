@@ -10,6 +10,7 @@ const MoviesList = () => {
   const getMovies = useGetMovies();
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(10);
+  const [alertMsg, setAlertMsg] = useState("");
 
   const movies = useSelector((state) => state.movies.movies);
   const moviesTotal = useSelector((state) => state.movies.moviesTotal);
@@ -27,17 +28,37 @@ const MoviesList = () => {
     // eslint-disable-next-line
   }, [search, limit]);
 
+  useEffect(() => {
+    if (alertMsg) {
+      const timer = setTimeout(() => {
+        setAlertMsg("");
+      }, 1000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [alertMsg]);
+
   return (
     <>
       <SearchInput
         label="Search"
         type="text"
+        value={search}
+        setSearchValue={setSearch}
         onChange={debouncedResults}
         placeholder="Please type title/actor"
       />
 
       {movies.map((movie, idx) => (
-        <MovieItem key={movie.id} idx={idx} movie={movie} />
+        <MovieItem
+          key={movie.id}
+          idx={idx}
+          movie={movie}
+          alertMsg={alertMsg}
+          setAlertMsg={setAlertMsg}
+        />
       ))}
 
       {moviesTotal === movies.length && moviesTotal > 10 && (
@@ -62,6 +83,8 @@ const MoviesList = () => {
           />
         </div>
       )}
+
+      <div className="bg-slate-500 rounded-sm px-5 text-slate-50 fixed bottom-6 right-[8vw]">{alertMsg}</div>
     </>
   );
 };

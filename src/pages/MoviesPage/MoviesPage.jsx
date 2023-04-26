@@ -24,7 +24,7 @@ const HomePage = () => {
             <LogoutButton onClick={logoutHadler} />
           </div>
 
-          <div className="flex justify-start justify-between items-end">
+          <div className="flex justify-between items-end">
             <MoviesImporter />
           </div>
 
